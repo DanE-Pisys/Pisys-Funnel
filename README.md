@@ -44,3 +44,4 @@ npm run preview   # optional validation of the build output
 - Form submission shows inline success and preserves focus visibility.
 - Metadata and JSON-LD render without console errors.
 - Layout retains WCAG AA contrast for text and buttons.
+# Pisys-Funnel
