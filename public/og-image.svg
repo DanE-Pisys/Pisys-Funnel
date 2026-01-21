@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Pisys.Net Free Cyber Risk Audit">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#013753" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0A4C70" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="140" r="180" fill="#C62A20" fill-opacity="0.15"/>
+  <circle cx="1020" cy="520" r="200" fill="#C62A20" fill-opacity="0.12"/>
+  <rect x="100" y="160" width="1000" height="320" rx="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="150" y="250" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700">Free Cyber Risk Audit for UK Businesses</text>
+  <text x="150" y="320" fill="#DDE7F0" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="600">If a cyber incident stopped your business tomorrow, would you recover?</text>
+  <text x="150" y="380" fill="#DDE7F0" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="400">Board-ready clarity across devices, Microsoft 365, and backups.</text>
+  <text x="150" y="450" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Pisys.Net · UK-based cyber resilience specialists</text>
+</svg>

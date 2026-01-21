@@ -1,0 +1,40 @@
+---
+const faqs = [
+  {
+    q: "What is included in the free Cyber Risk Audit?",
+    a: "The audit reviews devices, Microsoft 365 security settings and backup arrangements to identify real-world cyber risks and practical improvements."
+  },
+  {
+    q: "Is the audit really free?",
+    a: "Yes. The audit is provided free for a limited period to help organisations understand their cyber risk before an incident occurs."
+  },
+  {
+    q: "Will this turn into a sales pitch?",
+    a: "No. The audit is focused on clarity and risk reduction. There is no obligation to proceed with further services."
+  },
+  {
+    q: "Can the audit help with insurance or compliance?",
+    a: "Yes. Findings can support cyber insurance discussions, governance requirements and internal risk reporting."
+  }
+];
+---
+
+<section class="section bg-white" id="faq">
+  <div class="wrap space-y-6">
+    <p class="eyebrow">FAQs</p>
+    <h2 class="section-heading">Common questions</h2>
+    <div class="divide-y divide-[var(--color-border)] border border-[var(--color-border)] rounded-[var(--radius-card)]">
+      {faqs.map((item, idx) => (
+        <details class="group open:bg-subtle transition">
+          <summary class="flex w-full items-center justify-between gap-3 px-4 md:px-5 py-4 cursor-pointer text-left">
+            <span class="text-base md:text-lg font-semibold text-[var(--color-text)]">{item.q}</span>
+            <svg class="h-5 w-5 text-[var(--color-muted)] transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="px-4 md:px-5 pb-4 text-[var(--color-text)]">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

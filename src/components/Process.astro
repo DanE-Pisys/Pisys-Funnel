@@ -1,0 +1,50 @@
+---
+const steps = [
+  {
+    title: "Submit the form",
+    detail: "Tell us about your business and preferred contact details.",
+    time: "2 minutes"
+  },
+  {
+    title: "15-minute qualification call",
+    detail: "Confirm scope, critical systems, and any recent incidents.",
+    time: "Within 1 business day"
+  },
+  {
+    title: "Audit & snapshot",
+    detail: "Remote checks plus a concise risk snapshot and priority list.",
+    time: "5–7 business days"
+  },
+  {
+    title: "Review & next steps",
+    detail: "Walkthrough with your stakeholders; agree owners and timelines.",
+    time: "Scheduling at your pace"
+  }
+];
+---
+<section id="process" class="section bg-subtle">
+  <div class="wrap space-y-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4">
+      <div>
+        <p class="eyebrow">Process</p>
+        <h2 class="section-heading">The process</h2>
+        <p class="text-[var(--color-text)] max-w-2xl">Simple, low friction, and built to give you answers quickly.</p>
+      </div>
+      <a class="btn-secondary" href="#request">Book the free audit</a>
+    </div>
+    <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, index) => (
+        <div class="card-accent p-5 h-full flex flex-col gap-3">
+          <div class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-subtle border border-[var(--color-border)] text-base font-bold">
+              {index + 1}
+            </span>
+            {step.time}
+          </div>
+          <h3 class="text-xl font-semibold">{step.title}</h3>
+          <p class="text-[var(--color-muted)]">{step.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

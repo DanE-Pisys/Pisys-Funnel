@@ -1,0 +1,59 @@
+---
+const items = [
+  {
+    label: "Cyber Essentials Plus",
+    type: "image",
+    src: "/cyber-essentials-plus-475x350.png",
+    alt: "Cyber Essentials Plus aware badge"
+  },
+  {
+    label: "ISO 27001 aligned",
+    type: "image",
+    src: "/ISO-27001-Logo.png",
+    alt: "ISO 27001 aligned"
+  },
+  {
+    label: "ISO 9001 aligned",
+    type: "image",
+    src: "/iso-9001-612x612.jpg",
+    alt: "ISO 9001 aligned"
+  },
+  {
+    label: "UK-based cyber team",
+    type: "icon",
+    icon: "shield"
+  },
+  {
+    label: "SME-focused delivery",
+    type: "icon",
+    icon: "briefcase"
+  }
+];
+---
+<section class="section bg-subtle">
+  <div class="wrap space-y-4">
+    <p class="text-sm uppercase tracking-[0.12em] text-[var(--color-muted)] font-semibold">Trusted alignment</p>
+    <div class="flex flex-wrap gap-3">
+      {items.map((item) => (
+        <a class="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 shadow-sm w-full sm:w-auto transition hover:shadow-md" href="https://trust.pisys.net" target="_blank" rel="noreferrer">
+          {item.type === "image" ? (
+            <img src={item.src} alt={item.alt} class="h-10 w-auto object-contain" loading="lazy" />
+          ) : item.icon === "shield" ? (
+            <span class="h-10 w-10 rounded-lg bg-[var(--color-primary)] text-white grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path fill="currentColor" d="M12 3 5 6v6c0 4.5 3.4 8.6 7 9.9 3.6-1.3 7-5.4 7-9.9V6l-7-3Z"/>
+              </svg>
+            </span>
+          ) : (
+            <span class="h-10 w-10 rounded-lg bg-[var(--color-primary)] text-white grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path fill="currentColor" d="M4 6h4l1-2h6l1 2h4v2H4V6Zm-1 4h18l-1 10H4L3 10Zm7 2v6h2v-6h-2Zm4 0v6h2v-6h-2Zm-8 0 1 6h2l-1-6H6Z"/>
+              </svg>
+            </span>
+          )}
+          <span class="text-sm font-semibold text-[var(--color-text)] leading-5">{item.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
