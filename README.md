@@ -45,3 +45,4 @@ npm run preview   # optional validation of the build output
 - Metadata and JSON-LD render without console errors.
 - Layout retains WCAG AA contrast for text and buttons.
 # Pisys-Funnel
+# Pisys-Funnel
