@@ -13,9 +13,9 @@ Codex must read the referenced docs in `/agent/` before making changes.
 You are working in a repository that contains an `/agent/` folder with the project’s operating instructions.
 
 ### Mandatory reading (in this order)
-1. `/agent/instructions.md` — requirements, copy, deliverables, acceptance checklist
-2. `/agent/theme.md` — design system, palette, UI rules
-3. `/agent/agent.md` — quality bar, constraints, coding standards
+1. `/agent/instructions.md` - requirements, copy, deliverables, acceptance checklist
+2. `/agent/theme.md` - design system, palette, UI rules
+3. `/agent/agent.md` - quality bar, constraints, coding standards
 
 ### Primary objective
 Build a static, high-conversion landing page for Pisys.Net titled:

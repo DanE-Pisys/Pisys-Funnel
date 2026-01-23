@@ -78,7 +78,7 @@ The page must be:
 - Treat the access key as a config value (easy to edit).
 - Implement a clean, inline success state:
   - On success: hide form fields or disable submit and show confirmation text.
-  - Message: “Thanks — we’ll email within 1 business day to arrange the short qualification call.”
+  - Message: “Thanks - we’ll email within 1 business day to arrange the short qualification call.”
 - Add privacy micro-line:
   - “We’ll only use your details to arrange the audit.”
 - Do NOT implement deprecated honeypot approach.

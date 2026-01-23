@@ -55,7 +55,7 @@ a {
     @apply max-w-5xl mx-auto px-4 md:px-6 lg:px-8;
   }
   .section {
-    @apply py-10 md:py-14 lg:py-16;
+    @apply py-8 md:py-10 lg:py-12;
   }
   .card {
     @apply bg-white rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-sm;

@@ -10,17 +10,17 @@
 - Document setup in README and keep Session.md updated each iteration.
 
 **Repo Map**
-- prompt.md — project brief
-- Agent/instructions.md — (empty)
-- Agent/theme.md — visual system
-- Agent/agent.md — build constraints
-- Agent/Session.md — change log (this file)
-- astro.config.mjs, tsconfig.json — Astro project config
-- package.json, package-lock.json, node_modules — project dependencies
-- public/ — static assets placeholder
-- src/ — Astro starter source (to be replaced)
-- .gitignore, .vscode — defaults from Astro starter
-- .github/workflows/deploy.yml — GitHub Pages deployment workflow
+- prompt.md - project brief
+- Agent/instructions.md - (empty)
+- Agent/theme.md - visual system
+- Agent/agent.md - build constraints
+- Agent/Session.md - change log (this file)
+- astro.config.mjs, tsconfig.json - Astro project config
+- package.json, package-lock.json, node_modules - project dependencies
+- public/ - static assets placeholder
+- src/ - Astro starter source (to be replaced)
+- .gitignore, .vscode - defaults from Astro starter
+- .github/workflows/deploy.yml - GitHub Pages deployment workflow
 
 **Decisions**
 - Use Astro with Tailwind for styling; define brand tokens via CSS variables/Tailwind config.
@@ -60,4 +60,39 @@
 - Optional: add OG image asset once provided.
 
 **Validation**
-- `ASTRO_TELEMETRY_DISABLED=1 npm run build` — passes, outputs static site in `dist/`.
+- `ASTRO_TELEMETRY_DISABLED=1 npm run build` - passes, outputs static site in `dist/`.
+
+## 2026-01-22
+
+**Plan**
+- Audit current CTAs, proof, process, and trust sections to map required edits vs director feedback.
+- Update hero copy, CTA wording, social norm, “scope confirmation call” process, and confidentiality cue near the form.
+- Consolidate “what you’ll receive” into a single section and trim page length while preserving the persuasion flow.
+- Add a sample (redacted) report artefact and refresh the trust/credentials section per guidelines.
+- Align metadata/AI context with the new “board-ready 1-page risk snapshot” positioning, then run build check.
+
+**Changes**
+- Rewrote Hero messaging to match director copy (board-ready 1-page snapshot, risk-reversal line) and swapped all hero CTAs to “Request my risk snapshot” for lower friction (src/components/Hero.astro).
+- Removed duplicated hero “What you’ll receive” card to shorten the fold; added concise scope chips and embedded the social norm reassurance near the primary CTA (src/components/Hero.astro).
+- Kept credentials cue in a compact card to maintain authority without adding length (src/components/Hero.astro).
+- Consolidated deliverables into a single “What this audit will show you” panel and expanded bullets to cover board snapshot, 30/60/90 actions, and remote delivery while retaining problem framing (src/components/Value.astro).
+- Reframed the process to “scope confirmation call,” refreshed step names/timings, and aligned CTA copy (src/components/Process.astro).
+- Added a confidentiality cue, swapped form CTA/microcopy to “Request my risk snapshot,” and updated success language to reference the scope confirmation call (src/components/PromptForm.astro).
+- Rebuilt the Promise/Proof area with a redacted sample report artefact, embedded the social norm reassurance, and streamlined supporting bullets to avoid duplicate deliverables (src/components/Promise.astro).
+- Reworked trust sections to remove “Trusted alignment,” switch to logos-only credentials rows, and updated footer CTA to the new wording (src/components/Logos.astro, src/components/FooterTrust.astro).
+- Updated SEO and AI context to emphasize the board-ready 1-page risk snapshot positioning and the scope confirmation call step (src/content/seo.json, src/content/ai-context.json).
+- Ran `ASTRO_TELEMETRY_DISABLED=1 npm run build` to confirm the updated copy and components still compile cleanly.
+- Reduced scroll depth by tightening section padding globally (py 8/10/12), shrinking hero/form/process/FAQ spacing, and trimming card padding where possible while keeping hierarchy (global.css, Hero.astro, Value.astro, Promise.astro, Process.astro, PromptForm.astro, FAQ.astro, FooterTrust.astro). Build re-verified.
+- Consolidation pass: removed the separate Value section from the page flow, merged “What this audit will show you” with the proof/sample report, moved the form directly after proof, trimmed FAQ to two items, and set the process to a compact 4-step scope-confirmation flow (index.astro, Promise.astro, Process.astro, FAQ.astro).
+- Re-ran `ASTRO_TELEMETRY_DISABLED=1 npm run build` after consolidation to verify output.
+- Replaced all em dashes with plain punctuation across public copy and docs to avoid AI-ish tone (Hero.astro, Value.astro, Promise.astro, PromptForm.astro, seo.json, agent.md, Session.md, prompt.md). Build rechecked.
+- Populated the sample report artefact with redacted but readable content (risk score, top exposures, readiness notes, and actionable cards) so it no longer appears blank while still conveying the board snapshot format (src/components/Promise.astro).
+- Simplified the sample report layout: wider, fewer sections (overall score, top exposures, readiness, three mini-cards) for a cleaner, less vertical view while keeping actionable detail (src/components/Promise.astro).
+- Further compressed the sample report (score + two short lists) to cut height, matching the “no long sections” request (src/components/Promise.astro). 
+- Moved Process above the submission form in the page flow (src/pages/index.astro).
+- Added conversion tweaks: hero microcopy “We reply within one business day,” a “What you’ll get” trio under the form header, and a mobile-only sticky CTA bar appearing after 30% scroll (Hero.astro, PromptForm.astro, StickyCTA.astro, index.astro). FAQ restored to fuller set (FAQ.astro). Build rechecked.
+
+**What remains**
+- Final review against director checklist; ready for handover unless further tweaks are requested.
+- Check scroll depth (target ≤2 desktop, ≤3 mobile viewports) after trims.
+- Replace placeholder Web3Forms access key in src/components/PromptForm.astro.

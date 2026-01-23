@@ -1,23 +1,28 @@
 ---
-const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
+const accessKey = (import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "8fec85fb-2b95-4dd6-ad2c-7f94d6a28fef").trim();
 const missingKey = !accessKey;
 ---
 <section id="request" class="section bg-white">
-  <div class="wrap grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-start">
+  <div class="wrap grid gap-6 lg:grid-cols-[1.05fr_0.95fr] items-start">
     <div class="space-y-4">
       <p class="eyebrow">Prompt</p>
       <h2 class="section-heading">Request the free cyber risk audit</h2>
       <p class="text-[var(--color-text)] max-w-2xl">
-        We’ll arrange a short qualification call within one business day and deliver a board-ready snapshot with prioritized actions. No obligation to proceed beyond the audit.
+        We’ll arrange a quick scope confirmation call within one business day and deliver a board-ready snapshot with prioritized actions. No obligation to proceed beyond the audit.
       </p>
+      <ul class="list-disc pl-5 text-[var(--color-text)] space-y-1 text-sm">
+        <li>Board snapshot with ranked risks.</li>
+        <li>Top exposures and 30/60/90-day actions.</li>
+        <li>Owners and next steps agreed on the scope call.</li>
+      </ul>
       <div class="grid sm:grid-cols-2 gap-3 text-sm text-[var(--color-text)]">
-        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
-          <p class="font-semibold text-[var(--color-primary)]">Data use</p>
-          <p class="text-[var(--color-muted)]">We’ll only use your details to arrange the audit.</p>
-        </div>
         <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
           <p class="font-semibold text-[var(--color-primary)]">Availability</p>
           <p class="text-[var(--color-muted)]">10 free audit slots remain this month.</p>
+        </div>
+        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
+          <p class="font-semibold text-[var(--color-primary)]">Fit</p>
+          <p class="text-[var(--color-muted)]">Designed for UK businesses with 25–500 staff.</p>
         </div>
       </div>
       <ul class="list-disc pl-5 text-[var(--color-text)] space-y-2">
@@ -27,7 +32,10 @@ const missingKey = !accessKey;
       </ul>
     </div>
 
-    <div class="form-shell">
+      <div class="form-shell">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-[var(--color-primary)]">Confidential risk snapshot</p>
+        </div>
       <form id="audit-form" class="space-y-5" method="POST" action="https://api.web3forms.com/submit">
         <input type="hidden" name="access_key" value={accessKey} />
         <div>
@@ -67,11 +75,11 @@ const missingKey = !accessKey;
         </div>
         <p id="focus-help" class="text-xs text-[var(--color-muted)]">Pick the closest area or leave blank.</p>
         <div class="space-y-2">
-          <button class="btn-primary w-full text-white" type="submit">Book Your Free Cyber Risk Audit</button>
-          <p class="text-xs text-[var(--color-muted)] text-center">We’ll email within 1 business day to arrange the qualification call.</p>
+          <button class="btn-primary w-full text-white" type="submit">Request my risk snapshot</button>
+          <p class="text-xs text-[var(--color-muted)] text-center">We’ll email within 1 business day to arrange the scope confirmation call. Your details stay with us.</p>
         </div>
         <p id="form-success" class="hidden text-sm font-semibold text-green-700 bg-green-50 border border-green-200 rounded-lg p-3" role="status" aria-live="polite">
-          Thanks — we’ve received your request. We’ll email within one business day to schedule the call.
+          Thanks, we’ve received your request. We’ll email within one business day to schedule the scope confirmation call.
         </p>
         <p id="form-error" class="hidden text-sm font-semibold text-[var(--color-accent)] bg-red-50 border border-red-200 rounded-lg p-3" role="alert" aria-live="polite">
           Something went wrong. Please try again or email us directly.
@@ -100,6 +108,7 @@ const missingKey = !accessKey;
 
     if (missingKey) {
       handleMissingKey();
+      form.addEventListener("submit", (e) => e.preventDefault());
       return;
     }
 

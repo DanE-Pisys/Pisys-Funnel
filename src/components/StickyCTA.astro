@@ -1,0 +1,70 @@
+---
+const ctaText = "Request my risk snapshot";
+---
+<div id="sticky-cta" class="sticky-cta hidden md:hidden">
+  <div class="sticky-cta__inner">
+    <div>
+      <p class="sticky-cta__title">Free cyber risk snapshot</p>
+      <p class="sticky-cta__meta">We reply within one business day.</p>
+    </div>
+    <a class="btn-primary text-white" href="#request">Request now</a>
+  </div>
+</div>
+
+<script>
+  if (typeof window !== "undefined") {
+    const bar = document.getElementById("sticky-cta");
+    const threshold = () => window.innerHeight * 0.3;
+
+    const onScroll = () => {
+      if (!bar) return;
+      if (window.scrollY > threshold()) {
+        bar.classList.remove("hidden");
+      } else {
+        bar.classList.add("hidden");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
+<style>
+  .sticky-cta {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 40;
+    padding: 0.65rem 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 30%, rgba(255,255,255,0.96) 100%);
+  }
+  .sticky-cta__inner {
+    max-width: var(--wrap-width, 1100px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  }
+  .sticky-cta__title {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .sticky-cta__meta {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+  }
+  @media (min-width: 768px) {
+    .sticky-cta {
+      display: none !important;
+    }
+  }
+</style>

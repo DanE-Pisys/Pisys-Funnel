@@ -1,52 +1,135 @@
 <section id="promise" class="section bg-white">
-  <div class="wrap grid gap-6 lg:grid-cols-[1fr_0.95fr] items-start">
-    <div class="space-y-4">
+  <div class="wrap grid gap-6 lg:grid-cols-[1.05fr_0.95fr] items-start">
+    <div class="space-y-5">
       <p class="eyebrow">Promise</p>
-      <h2 class="section-heading">Our promise</h2>
+      <h2 class="section-heading">What this audit will show you</h2>
       <p class="text-[var(--color-text)]">
-        You’ll leave with a concise, action-focused report you can share with the board—highlighting your top risks, how they could impact operations, and the quickest fixes that deliver real resilience.
+        UK businesses face ransomware, supply chain breaches, and Microsoft 365 gaps, but boards rarely see a concise, current view. This audit gives you that clarity without scare tactics.
       </p>
-    <div class="card-accent p-6 space-y-4">
-        <h3 class="text-xl font-semibold text-[var(--color-primary)]">What you can expect</h3>
-        <ul class="space-y-2 text-[var(--color-text)]">
-          <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-[var(--color-accent)]" aria-hidden="true"></span>
-            Prioritized 30/60/90-day roadmap mapped to effort and impact.
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-[var(--color-accent)]" aria-hidden="true"></span>
-            Clear ownership notes so responsibilities are obvious.
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-[var(--color-accent)]" aria-hidden="true"></span>
-            Optional light-touch support to action recommendation, only if you ask.
-          </li>
-        </ul>
-      </div>
+      <ul class="space-y-3">
+        <li class="flex gap-3">
+          <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-primary)]" aria-hidden="true"></span>
+          <p class="font-semibold">Board-ready 1-page snapshot ranked by impact and likelihood.</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-primary)]" aria-hidden="true"></span>
+          <p class="font-semibold">Priority 30/60/90-day actions with effort and cost guidance.</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-primary)]" aria-hidden="true"></span>
+          <p class="font-semibold">Remote-first delivery aligned to ISO 27001 and Cyber Essentials Plus.</p>
+        </li>
+      </ul>
     </div>
-    <div class="card-accent p-6 border-l-4 border-l-[var(--color-accent)] space-y-4">
-      <h3 class="text-xl font-semibold text-[var(--color-primary)]">Proof points</h3>
-      <p class="text-[var(--color-text)]">
-        Pisys.Net delivers cyber resilience for UK SMEs with a business-first lens, blending ISO 27001 and Cyber Essentials Plus practices into practical steps your team can actually implement.
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--color-text)]">
-        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
-          <p class="font-semibold text-[var(--color-primary)]">UK-based delivery</p>
-          <p class="text-[var(--color-muted)]">Local team aligned to UK data handling expectations.</p>
+    <div class="card-accent p-5 border-l-4 border-l-[var(--color-accent)] space-y-4">
+      <h3 class="text-xl font-semibold text-[var(--color-primary)]">Sample report (redacted)</h3>
+      <div class="sample-report rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white shadow-md overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-3 bg-subtle border-b border-[var(--color-border)]">
+          <span class="text-sm font-semibold text-[var(--color-primary)]">Board snapshot</span>
+          <span class="text-xs font-semibold text-[var(--color-accent)]">Sample · redacted</span>
         </div>
-        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
-          <p class="font-semibold text-[var(--color-primary)]">ISO-informed</p>
-          <p class="text-[var(--color-muted)]">Practices mapped to ISO 27001 & ISO 9001 disciplines.</p>
-        </div>
-        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
-          <p class="font-semibold text-[var(--color-primary)]">Cyber Essentials Plus aware</p>
-          <p class="text-[var(--color-muted)]">Guidance aligned to CE+ expectations for SMEs.</p>
-        </div>
-        <div class="p-3 rounded-lg bg-subtle border border-[var(--color-border)]">
-          <p class="font-semibold text-[var(--color-primary)]">Board-friendly outputs</p>
-          <p class="text-[var(--color-muted)]">Plain language summaries with quantified risk themes.</p>
+        <div class="report-body px-4 py-4 space-y-2">
+          <div class="report-row">
+            <span class="label">Overall risk</span>
+            <span class="score">62 / 100</span>
+            <span class="bar"><span style="width:62%"></span></span>
+          </div>
+          <div class="report-row chips">
+            <span class="pill-muted">Board-ready</span>
+            <span class="pill-muted">Remote</span>
+            <span class="pill-muted">ISO 27001 · CE+</span>
+          </div>
+          <div class="report-row stack">
+            <div>
+              <p class="label">Top exposures</p>
+              <p class="body">M365 admins lack Conditional Access. Restore test >9 months. Shared vendor credentials; no logging.</p>
+            </div>
+            <div>
+              <p class="label">Next 5 days</p>
+              <p class="body">Enforce CA for admins; run one restore test and set quarterly cadence.</p>
+            </div>
+            <div>
+              <p class="label">Owners</p>
+              <p class="body">IT manager (vendors). Ops lead + finance (restore test).</p>
+            </div>
+          </div>
         </div>
       </div>
+      <p class="text-[var(--color-text)]">
+        “Most firms haven’t had a board-ready view of their cyber security in the last 12 months, this is a quick way to get one.”
+      </p>
+      <p class="text-[var(--color-text)]">
+        Board snapshot plus tailored actions, delivered remotely within 5 business days and aligned to ISO 27001 and Cyber Essentials Plus.
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+  .sample-report div {
+    background-clip: padding-box;
+  }
+  .report-body {
+    display: grid;
+    gap: 0.6rem;
+  }
+  .report-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .report-row.stack {
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    font-weight: 700;
+  }
+  .score {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+  .bar {
+    display: inline-flex;
+    align-items: center;
+    height: 0.45rem;
+    width: 4.8rem;
+    border-radius: 9999px;
+    background: #e5e7eb;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+  .bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444);
+  }
+  .body {
+    margin-top: 0.2rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    font-size: 0.92rem;
+  }
+  .chips {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.1rem;
+  }
+  .pill-muted {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    border-radius: 9999px;
+    padding: 0.18rem 0.55rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+</style>

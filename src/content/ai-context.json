@@ -1,12 +1,12 @@
 {
-  "purpose": "Offer a free cyber risk audit that surfaces practical, board-ready actions for UK businesses and converts decision-makers into scheduled calls with Pisys.Net.",
-  "audience": "UK business owners, managing directors, and operations leaders who need clarity on cyber resilience without jargon.",
+  "purpose": "Offer a free cyber risk audit that delivers a board-ready 1-page risk snapshot and converts decision-makers into a scheduled scope confirmation call with Pisys.Net.",
+  "audience": "UK business owners, managing directors, and operations leaders who need a concise, non-technical view of their cyber resilience.",
   "tone": "Calm, trustworthy, plain-language, with emphasis on business continuity and practical steps.",
-  "problem": "Leaders worry about ransomware, Microsoft 365 exposure, and recovery readiness but lack a clear, executive-friendly view of their risk posture.",
-  "promise": "A concise audit with prioritized recommendations, delivered by UK-based cyber specialists aligned to ISO 27001, ISO 9001, and Cyber Essentials Plus practices.",
+  "problem": "Leaders worry about ransomware, Microsoft 365 exposure, and recovery readiness but rarely have a recent, executive-friendly view of their posture.",
+  "promise": "A concise, ISO-aligned audit across devices, Microsoft 365, and backups with prioritized actions, delivered by UK-based specialists after a short scope confirmation call.",
   "takeaways": [
-    "Understand top cyber risks across Microsoft 365, endpoints, backups, and incident response readiness.",
-    "Receive an action plan that balances cost, impact, and speed.",
-    "Know exactly what will happen after submitting the form and how data is handled."
+    "Receive a 1-page board snapshot ranking risks by impact and likelihood across devices, Microsoft 365, and backups.",
+    "Get a 30/60/90-day action plan that balances cost, impact, and speed.",
+    "Understand the simple process: request → scope confirmation call → audit → clear findings and next steps."
   ]
 }
