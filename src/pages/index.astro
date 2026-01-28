@@ -1,13 +1,12 @@
 ---
+/**
+ * index.astro
+ * Single-screen conversion panel for cyber-audit.pisys.net
+ * Split layout: pitch on left, form on right.
+ */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import Promise from "../components/Promise.astro";
-import Process from "../components/Process.astro";
-import FAQ from "../components/FAQ.astro";
-import PromptForm from "../components/PromptForm.astro";
-import FooterTrust from "../components/FooterTrust.astro";
-import Logos from "../components/Logos.astro";
-import StickyCTA from "../components/StickyCTA.astro";
+import FunnelPitch from "../components/FunnelPitch.astro";
+import FunnelForm from "../components/FunnelForm.astro";
 import seo from "../content/seo.json";
 
 const structuredData = {
@@ -27,13 +26,177 @@ const structuredData = {
 };
 ---
 
-<BaseLayout title={seo.title} description={seo.description} canonical={seo.canonical} structuredData={structuredData}>
-  <Hero />
-  <Logos />
-  <Promise />
-  <Process />
-  <PromptForm />
-  <FAQ />
-  <StickyCTA />
-  <FooterTrust />
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  structuredData={structuredData}
+>
+  <!-- Full-viewport wrapper: prevents body scroll on desktop -->
+  <div class="funnel-wrapper">
+    <!-- Ambient background effect -->
+    <div class="funnel-ambient" aria-hidden="true"></div>
+
+    <!-- Centered content container -->
+    <div class="funnel-container">
+      <!-- Two-column grid: stacks on mobile, side-by-side on lg+ -->
+      <div class="funnel-grid">
+        <!-- Left: Pitch (scrollable if needed on desktop) -->
+        <div class="funnel-pitch-col">
+          <FunnelPitch />
+        </div>
+
+        <!-- Right: Form -->
+        <div class="funnel-form-col">
+          <FunnelForm />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer credit line -->
+    <div class="funnel-footer">
+      <p class="text-xs text-[var(--color-muted)]">
+        &copy; {new Date().getFullYear()} Pisys.Net Ltd &bull; Cyber security for UK businesses
+      </p>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  /* Full viewport wrapper - prevents page scroll on desktop */
+  .funnel-wrapper {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport for mobile browsers */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #ffffff;
+  }
+
+  /* Desktop: lock to viewport height */
+  @media (min-width: 1024px) {
+    .funnel-wrapper {
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+  }
+
+  /* Ambient background gradient */
+  .funnel-ambient {
+    position: absolute;
+    inset: -100px;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(1, 55, 83, 0.07), transparent 40%),
+      radial-gradient(ellipse at 85% 15%, rgba(198, 42, 32, 0.06), transparent 35%),
+      radial-gradient(ellipse at 50% 80%, rgba(1, 55, 83, 0.04), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Centered container that holds the grid */
+  .funnel-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    .funnel-container {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .funnel-container {
+      padding: 2rem;
+      overflow: hidden;
+    }
+  }
+
+  /* Grid: single column on mobile, two columns on desktop */
+  .funnel-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  @media (min-width: 1024px) {
+    .funnel-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      max-height: calc(100vh - 6rem);
+      max-height: calc(100dvh - 6rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .funnel-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+    }
+  }
+
+  /* Left column: pitch content */
+  .funnel-pitch-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    .funnel-pitch-col {
+      max-height: 100%;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    /* Custom scrollbar for pitch column if it overflows */
+    .funnel-pitch-col::-webkit-scrollbar {
+      width: 4px;
+    }
+    .funnel-pitch-col::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .funnel-pitch-col::-webkit-scrollbar-thumb {
+      background: rgba(1, 55, 83, 0.2);
+      border-radius: 4px;
+    }
+  }
+
+  /* Right column: form */
+  .funnel-form-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1024px) {
+    .funnel-form-col {
+      max-height: 100%;
+    }
+  }
+
+  /* Footer */
+  .funnel-footer {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 1024px) {
+    .funnel-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+</style>

@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://landing.pisys.net',
+  site: 'https://cyber-audit.pisys.net',
   vite: {
     plugins: [tailwindcss()]
   }
