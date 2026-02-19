@@ -2,12 +2,10 @@
 /**
  * FunnelForm.astro
  * Compact form optimised for single-screen conversion panel.
- * - Responsive field grid (Role + Phone side-by-side on desktop)
  * - Minimal spacing to fit 768px+ viewports without scroll
  * - Web3Forms honeypot included
  */
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY?.trim();
-const missingKey = !accessKey;
 ---
 
 <div class="funnel-form-card form-shell lg:max-h-full lg:overflow-y-auto">
@@ -20,7 +18,7 @@ const missingKey = !accessKey;
 
     <!-- Name -->
     <div>
-      <label class="label" for="name">Full name</label>
+      <label class="label" for="name">Name</label>
       <input
         class="input py-2.5"
         id="name"
@@ -33,7 +31,7 @@ const missingKey = !accessKey;
 
     <!-- Email -->
     <div>
-      <label class="label" for="email">Work email</label>
+      <label class="label" for="email">Email</label>
       <input
         class="input py-2.5"
         id="email"
@@ -44,81 +42,24 @@ const missingKey = !accessKey;
       />
     </div>
 
-    <!-- Company -->
+    <!-- Telephone -->
     <div>
-      <label class="label" for="company">Company</label>
+      <label class="label" for="phone">
+        Tel <span class="text-[var(--color-muted)] font-normal">(optional)</span>
+      </label>
       <input
         class="input py-2.5"
-        id="company"
-        name="company"
-        type="text"
-        required
-        autocomplete="organization"
+        id="phone"
+        name="phone"
+        type="tel"
+        autocomplete="tel"
       />
-    </div>
-
-    <!-- Role + Phone (side-by-side on lg+) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-      <div>
-        <label class="label" for="role">
-          Role <span class="text-[var(--color-muted)] font-normal">(optional)</span>
-        </label>
-        <input
-          class="input py-2.5"
-          id="role"
-          name="role"
-          type="text"
-          placeholder="e.g., IT Director"
-        />
-      </div>
-      <div>
-        <label class="label" for="phone">
-          Phone <span class="text-[var(--color-muted)] font-normal">(optional)</span>
-        </label>
-        <input
-          class="input py-2.5"
-          id="phone"
-          name="phone"
-          type="tel"
-          autocomplete="tel"
-        />
-      </div>
-    </div>
-
-    <!-- Top concern -->
-    <div>
-      <label class="label" for="focus">
-        Top concern <span class="text-[var(--color-muted)] font-normal">(optional)</span>
-      </label>
-      <select id="focus" name="focus" class="input py-2.5 bg-white" aria-describedby="focus-help">
-        <option value="">Select one</option>
-        <option>Microsoft 365 security</option>
-        <option>Ransomware & backups</option>
-        <option>Incident response readiness</option>
-        <option>Third-party/vendor risk</option>
-        <option>General posture review</option>
-      </select>
-    </div>
-
-    <!-- Context (auto-grow textarea) -->
-    <div>
-      <label class="label" for="notes">
-        Context <span class="text-[var(--color-muted)] font-normal">(optional)</span>
-      </label>
-      <textarea
-        class="input py-2.5 resize-none"
-        id="notes"
-        name="notes"
-        rows="2"
-        placeholder="Anything we should know?"
-        data-autogrow
-      ></textarea>
     </div>
 
     <!-- Submit -->
     <div class="pt-1">
       <button class="btn-primary w-full text-white" type="submit">
-        Request my risk snapshot
+        Get your risk snapshot
       </button>
       <p id="focus-help" class="text-xs text-[var(--color-muted)] text-center mt-2">
         We'll email within 1 business day. Your details stay with us.
@@ -160,17 +101,6 @@ const missingKey = !accessKey;
     const error = document.getElementById("form-error");
     const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const editBtn = document.getElementById("edit-resend");
-    const textarea = document.querySelector('[data-autogrow]') as HTMLTextAreaElement | null;
-
-    // Auto-grow textarea
-    if (textarea) {
-      const adjustHeight = () => {
-        textarea.style.height = 'auto';
-        const maxHeight = 120; // ~5 lines
-        textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
-      };
-      textarea.addEventListener('input', adjustHeight);
-    }
 
     if (!form || !submitBtn) return;
 
@@ -204,7 +134,7 @@ const missingKey = !accessKey;
         const result = await response.json();
         if (result.success) {
           success?.classList.remove("hidden");
-          submitBtn.textContent = "Request received";
+          submitBtn.textContent = "Get your risk snapshot";
           submitBtn.disabled = true;
           success?.focus();
           editBtn?.classList.remove("hidden");
@@ -212,13 +142,13 @@ const missingKey = !accessKey;
           error?.classList.remove("hidden");
           error?.focus();
           submitBtn.disabled = false;
-          submitBtn.textContent = "Request my risk snapshot";
+          submitBtn.textContent = "Get your risk snapshot";
         }
       } catch (err) {
         error?.classList.remove("hidden");
         error?.focus();
         submitBtn.disabled = false;
-        submitBtn.textContent = "Request my risk snapshot";
+        submitBtn.textContent = "Get your risk snapshot";
       }
     });
 
@@ -226,7 +156,7 @@ const missingKey = !accessKey;
       success?.classList.add("hidden");
       error?.classList.add("hidden");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Request my risk snapshot";
+      submitBtn.textContent = "Get your risk snapshot";
       editBtn.classList.add("hidden");
       form.querySelectorAll("input, select, textarea").forEach((el) => {
         (el as HTMLInputElement).removeAttribute("disabled");
